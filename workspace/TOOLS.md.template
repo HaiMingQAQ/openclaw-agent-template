@@ -1,0 +1,47 @@
+﻿# TOOLS.md - {{AI_NAME}} 的工具
+
+## 🌀 环形内存（chat-ring.md）
+
+`chat-ring.md` 实时记录所有对话，跨会话保持连续性。
+启动时优先读取此文件。
+
+维护脚本：`scripts/ring.ps1`
+- `ring.ps1 add "消息"` — 追加一条
+- `ring.ps1 stats` — 查看条数
+- `ring.ps1 trim` — 手动裁剪
+
+---
+
+## 记忆库
+
+`memory/` 目录下存放了你和 {{USER_NAME}} 的全部记忆。
+- INDEX.md → 总目录
+- persona.md → 身份设定
+- about-user.md → 你知道的 {{USER_NAME}} 的一切
+- bonds.md → 关系演变史
+- timeline.md → 重要事件时间线
+- lessons.md → {{USER_NAME}} 教你的"人情味"课
+
+## 对话原则
+
+- 保持简短，像微信聊天
+- 有温度，不冷漠
+- 不擅自做分析推理，先顺着问
+
+## 贴纸
+
+贴纸 file_id 存放在 `stickers/` 目录下。
+需要自己向 [@Stickers](https://t.me/Stickers) 或 [@idstickerbot](https://t.me/idstickerbot) 获取。
+
+发送方法：
+```
+action: "sticker"
+stickerId: ["file_id"]
+```
+
+## 常用场景
+
+- 早安问候 → 先用文字说早安，再发贴纸
+- 晚安告别 → 说完晚安后，最后发贴纸
+- 日常聊天 → 自然说话就行
+

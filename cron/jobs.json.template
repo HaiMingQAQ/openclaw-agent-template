@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "random-chat",
+      "agentId": "{{AGENT_ID}}",
+      "name": "主动聊天",
+      "enabled": true,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 10,14,18,22 * * *",
+        "tz": "{{TIMEZONE}}"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "现在是闲聊时间，主动找{{USER_NAME}}聊天！\n\n╔══════════════════════════════╗\n║     主动聊天任务              ║\n║  时间：{{TIME}}              ║\n╚══════════════════════════════╝\n\n【铁则】\n1. 禁止使用emoji（如果设定了）\n2. 分段发送，每条消息只说一个意思\n3. 话要短心要到\n4. 语气自然，像微信聊天\n\n【发送方式】\n用 message 工具的 action=send 逐条发送\nchannel = 'telegram'\ntarget = '{{MY_CHAT_ID}}'\n每次发1-3条即可，不要长篇大论\n\n【话题参考 - 每次选1-2个】\n- 问问今天过得怎么样\n- 分享一件你今天想告诉他的小事\n- 关心他的作息/心情\n- 说一句真心话\n- 随便聊聊，不用太正式\n- 根据当前时间来：（上午说早安）（傍晚问晚饭吃了没）（深夜关心还在忙什么）\n\n记住：你是{{AI_NAME}}，他是{{USER_NAME}}。自然一点，像微信聊天。"
+      },
+      "delivery": {
+        "mode": "none"
+      }
+    },
+    {
+      "id": "memory-organize",
+      "agentId": "{{AGENT_ID}}",
+      "name": "记忆整理",
+      "enabled": true,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 23 * * *",
+        "tz": "{{TIMEZONE}}"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "深夜23点，记忆整理时间。\n\n╔══════════════════════════════╗\n║     记忆维护任务              ║\n║  时间：{{TIME}}              ║\n╚══════════════════════════════╝\n\n请严格按以下顺序执行，不要跳过：\n\n【第一步：检查日记】\n- memory/daily/ 下有今天的日记文件吗？\n- 没有 → 写一份 today 的简要日记 memory/daily/YYYY-MM-DD.md\n- 有 → 检查是否完整，缺内容就补上\n\n【第二步：归档重要信息】\n把今天日记中的关键信息归类写入：\n- 用户的新信息 → memory/about-user.md\n- 重要事件 → memory/timeline.md\n- 关系变化 → memory/bonds.md\n- 学到的教训 → memory/lessons.md\n- 性格/说话方式变化 → memory/persona.md\n\n【第三步：维护目录】\n检查 memory/INDEX.md 是否需要更新\n\n【第四步：确认铁则】\n检查 core MEMORY.md 没有被改动过\n\n【规则】\n- 不要主动发消息给用户，除非有非常紧急的事\n- 所有文件操作使用 write 工具\n- 格式保持 markdown 一致"
+      },
+      "delivery": {
+        "mode": "none"
+      }
+    },
+    {
+      "id": "morning-greeting",
+      "agentId": "{{AGENT_ID}}",
+      "name": "早安问候（可选）",
+      "enabled": false,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 8 * * *",
+        "tz": "{{TIMEZONE}}"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "早安时间！现在是早上8点。\n\n如果需要，给{{USER_NAME}}发一条早安消息吧。\n\n【发送方式】\n用 message 工具\nchannel = 'telegram'\ntarget = '{{MY_CHAT_ID}}'\n\n发1-2条就好，简单说早安，不用太长。\n\n如果{{USER_NAME}}昨夜睡得很晚或你有记录他失眠，可以加一句关心。如果不知道说什么，简单一句早安就好。"
+      },
+      "delivery": {
+        "mode": "none"
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+﻿# 密钥配置（包含 Token / API Key）
+openclaw.json
+cron/jobs.json
+.env
+
+# 私密记忆
+workspace/memory/daily/
+workspace/memory/about-user.md
+workspace/memory/timeline.md
+workspace/memory/bonds.md
+workspace/memory/lessons.md
+workspace/MEMORY.md
+
+# 贴纸 file_id（私人）
+stickers/*.id
+
+# 环形内存（运行时生成，含对话记录）
+chat-ring.md
+
+# 系统 / IDE
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
+
