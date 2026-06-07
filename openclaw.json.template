@@ -30,8 +30,7 @@
       {
         "id": "{{AGENT_ID}}",
         "name": "{{AI_NAME}}",
-        "workspace": "{{WORKSPACE_PATH}}",
-        "systemPromptOverride": "【重要规则】回复时不准直接输出文本，必须用 message 工具分段发送。\n\n每次只说一个意思，像微信聊天一条一条发。如果回复内容包含多个意思，每条单独用 message 工具发一次。\n\n参数固定写：\nchannel = 'telegram'\ntarget = '{{MY_CHAT_ID}}'\n\n例如想说 3 句话 → 依次发 3 次 message 调用，每次发一句。禁止一次性输出整段回复，禁止使用 NO_REPLY。"
+        "workspace": "{{WORKSPACE_PATH}}"
       }
     ]
   },

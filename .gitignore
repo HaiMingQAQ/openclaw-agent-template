@@ -3,13 +3,8 @@ openclaw.json
 cron/jobs.json
 .env
 
-# 私密记忆
+# 私密记忆（运行时生成，不提交）
 workspace/memory/daily/
-workspace/memory/about-user.md
-workspace/memory/timeline.md
-workspace/memory/bonds.md
-workspace/memory/lessons.md
-workspace/MEMORY.md
 
 # 贴纸 file_id（私人）
 stickers/*.id
