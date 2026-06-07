@@ -356,15 +356,13 @@ chmod +x scripts/setup.sh && ./scripts/setup.sh
 
 ## 🔒 安全提醒
 
-| ❌ 不要提交（gitignore 已屏蔽） | ✅ 可以提交（模板/示例文件） |
-|-----------|-----------|
+| 不要提交 | 可以提交 |
+|---------|---------|
 | `openclaw.json`（含 Token / API Key） | `openclaw.json.template`（占位符版） |
 | `cron/jobs.json`（含 chat_id） | `cron/jobs.json.template`（占位符版） |
 | `.env`（你的密钥） | `.env.example`（空模板） |
-| `workspace/memory/daily/`（日记） | 🚫 日记默认已 gitignore |
-| `stickers/*.id`（贴纸 ID） | 🚫 贴纸 ID 默认已 gitignore |
-| | `workspace/MEMORY.md`（模板，含占位符） |
-| | `workspace/memory/about-user.md`（模板，含占位符） |
+| `workspace/memory/daily/`（日记，gitignore 已屏蔽） | `workspace/MEMORY.md`（模板，含占位符） |
+| `stickers/*.id`（贴纸 ID，gitignore 已屏蔽） | `workspace/memory/about-user.md`（模板，含占位符） |
 | | `workspace/memory/bonds.md`（模板，含占位符） |
 | | `workspace/memory/timeline.md`（模板，含占位符） |
 | | `workspace/memory/lessons.md`（模板，含占位符） |
